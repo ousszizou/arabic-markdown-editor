@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  :root {
+    --color-theme-base: #232935;
+    --color-theme-secondary: #1f2430;
+    --color-text-base: #fff;
+    --color-text-base-hover: #ffffffc7;
+    --color-button-base: #ffffff0f;
+    --color-button-base-hover: #ffffff0a;
+    --color-dropdown-base: #2e343f;
+    --color-dropdown-item-hover: #0000001a;
+  }
+
+}
+
+.markdown-content {
+  word-break: break-word;
+}
+.markdown-content h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply my-5;
+}
+.markdown-content h1 {
+  @apply text-3xl;
+}
+.markdown-content h2 {
+  @apply text-2xl;
+}
+.markdown-content p {
+  @apply my-2;
+}
+.markdown-content a {
+  @apply text-blue-300 hover:text-blue-400 transition duration-300 ease-out underline font-bold;
+}
+.markdown-content ul {
+  @apply list-disc mr-10 mb-2;
+}
+.markdown-content pre {
+  @apply my-5;
+}
+.markdown-content pre,
+.markdown-content code {
+  font-family: "Fira Code", monospace;
+  word-break: break-word;
+  @apply rounded-xl;
+}
+
+.markdown-content pre code.hljs {
+  direction: ltr;
+  @apply p-5 bg-skin-secondary;
+}
