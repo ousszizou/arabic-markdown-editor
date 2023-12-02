@@ -42,9 +42,6 @@ export default defineNuxtConfig({
 //     { src: '~plugins/clickaway.js', ssr: false },
 //   ],
 
-//   // Auto import components: https://go.nuxtjs.dev/config-components
-//   components: true,
-
 //   // PWA module configuration: https://go.nuxtjs.dev/pwa
 //   pwa: {
 //     manifest: {
