@@ -30,13 +30,6 @@ export default defineNuxtConfig({
 //     // "@/assets/css/tailwind.css"
 //   ],
 
-//   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-//   plugins: [
-//     { src: '~/plugins/vuex-persist', ssr: false },
-//     { src: '~plugins/nuxt-codemirror', ssr: false },
-//     { src: '~plugins/clickaway.js', ssr: false },
-//   ],
-
 //   // PWA module configuration: https://go.nuxtjs.dev/pwa
 //   pwa: {
 //     manifest: {
