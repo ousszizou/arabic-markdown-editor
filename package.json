@@ -15,7 +15,6 @@
     "@pinia/nuxt": "^0.5.1",
     "codemirror": ">=5.64.0 <6",
     "codemirror-editor-vue3": "^2.4.1",
-    "core-js": "^3.9.1",
     "file-saver": "^2.0.5",
     "gsap": "^3.6.1",
     "lodash.throttle": "^4.1.1",
