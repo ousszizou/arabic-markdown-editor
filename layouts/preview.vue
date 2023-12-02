@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bg-skin-base ov text-skin-base">
-      <Nuxt />
+      <slot />
     </div>
   </div>
 </template>

@@ -6,7 +6,7 @@
     >
       <base-sidebar />
       <menubar class="h-16" :layoutfullscreen="this.$refs.layout" />
-      <Nuxt
+      <slot
         class="my-0 mx-auto p-3 bg-skin-secondary"
         style="height: calc(100vh - 4rem)"
       />
