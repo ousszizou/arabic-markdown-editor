@@ -9,10 +9,14 @@ export default defineNuxtConfig({
   },
   modules: [
     "@pinia/nuxt",
-    // '@nuxtjs/tailwindcss',
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
     // '@nuxtjs/pwa',
     // '@nuxtjs/markdownit'
   ],
+  tailwindcss: {
+    cssPath: "~/assets/css/tailwind.css",
+  },
 });
 // export default {
 //   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
