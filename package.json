@@ -9,8 +9,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxt/kit": "^3.8.2",
     "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.5",
+    "@pinia/nuxt": "^0.5.1",
     "core-js": "^3.9.1",
     "file-saver": "^2.0.5",
     "gsap": "^3.6.1",
@@ -19,7 +21,8 @@
     "markdown-it-div": "^1.1.0",
     "markdown-it-emoji": "^2.0.0",
     "markdown-it-highlightjs": "^3.4.0",
-    "nuxt": "^2.15.3",
+    "nuxt": "^3.8.2",
+    "pinia": "^2.1.7",
     "shortid": "^2.2.16",
     "vue-clickaway": "^2.2.2",
     "vue-codemirror": "^4.0.6",
