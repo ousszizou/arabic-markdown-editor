@@ -34,7 +34,7 @@
     </base-button>
     <!-- Header -->
     <div class="h-20 my-6 flex justify-center items-center">
-      <img class="w-16" src="logo.png" />
+      <img class="w-16" src="/logo.png" />
     </div>
     <!-- Body -->
     <div class="flex-grow py-6 overflow-y-scroll">
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+// import { mapGetters, mapActions } from "vuex";
 import { TweenMax, Power4 } from "gsap";
 import { version } from "~/package.json";
 export default {
@@ -83,30 +83,30 @@ export default {
       version,
     };
   },
-  computed: {
-    ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),
-  },
-  mounted() {
-    if (this.$store.getters["ui/sidebarOpen"]) {
-      this.$store.dispatch("ui/toggleSidebar");
-    }
-    TweenMax.set(this.$refs.sidebar, {
-      x: this.$refs.sidebar.offsetWidth,
-    });
-    this.$store.dispatch("ui/setSidebarWidth", this.$refs.sidebar.offsetWidth);
-  },
-  watch: {
-    sidebarOpen: function (sidebarOpen) {
-      const dX = sidebarOpen ? 0 : this.$refs.sidebar.offsetWidth;
-      TweenMax.to(this.$el, 0.6, {
-        x: dX,
-        ease: Power4.easeOut,
-      });
-    },
-  },
-  methods: {
-    ...mapActions("ui", ["toggleSidebar", "closeSidebar"]),
-  },
+  // computed: {
+  //   ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),
+  // },
+  // mounted() {
+  //   if (this.$store.getters["ui/sidebarOpen"]) {
+  //     this.$store.dispatch("ui/toggleSidebar");
+  //   }
+  //   TweenMax.set(this.$refs.sidebar, {
+  //     x: this.$refs.sidebar.offsetWidth,
+  //   });
+  //   this.$store.dispatch("ui/setSidebarWidth", this.$refs.sidebar.offsetWidth);
+  // },
+  // watch: {
+  //   sidebarOpen: function (sidebarOpen) {
+  //     const dX = sidebarOpen ? 0 : this.$refs.sidebar.offsetWidth;
+  //     TweenMax.to(this.$el, 0.6, {
+  //       x: dX,
+  //       ease: Power4.easeOut,
+  //     });
+  //   },
+  // },
+  // methods: {
+  //   ...mapActions("ui", ["toggleSidebar", "closeSidebar"]),
+  // },
 };
 </script>
 

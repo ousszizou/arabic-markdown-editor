@@ -258,40 +258,40 @@ export default {
     };
   },
   methods: {
-    toggleFullScreen() {
-      if (!document.fullscreenElement) {
-        this.layoutfullscreen.requestFullscreen();
-      } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        }
-      }
-    },
-    updateSetting(key, value) {
-      this.$store.dispatch("app/updateSetting", {
-        key,
-        value,
-      });
-    },
-    togglePreview() {
-      this.$nuxt.$emit("togglePreview");
-    },
+    // toggleFullScreen() {
+    //   if (!document.fullscreenElement) {
+    //     this.layoutfullscreen.requestFullscreen();
+    //   } else {
+    //     if (document.exitFullscreen) {
+    //       document.exitFullscreen();
+    //     }
+    //   }
+    // },
+    // updateSetting(key, value) {
+    //   this.$store.dispatch("app/updateSetting", {
+    //     key,
+    //     value,
+    //   });
+    // },
+    // togglePreview() {
+    //   this.$nuxt.$emit("togglePreview");
+    // },
   },
-  created() {
-    this.$nuxt.$on("togglePreview", () => {
-      this.showPreview = !this.showPreview;
-    });
-  },
-  beforeDestroy() {
-    this.$nuxt.$off("togglePreview");
-  },
-  computed: {
-    settings() {
-      return this.$store.state.app;
-    },
-    showCodeView() {
-      return this.$store.state.ui.showCode;
-    },
-  },
+  // created() {
+  //   this.$nuxt.$on("togglePreview", () => {
+  //     this.showPreview = !this.showPreview;
+  //   });
+  // },
+  // beforeDestroy() {
+  //   this.$nuxt.$off("togglePreview");
+  // },
+  // computed: {
+  //   settings() {
+  //     return this.$store.state.app;
+  //   },
+  //   showCodeView() {
+  //     return this.$store.state.ui.showCode;
+  //   },
+  // },
 };
 </script>

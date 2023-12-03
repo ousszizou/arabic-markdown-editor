@@ -1,9 +1,10 @@
 <template>
   <div
     class="flex relative text-lg"
-    :class="[sidebarOpen ? 'filter blur' : '']"
+    :class="[false ? 'filter blur' : '']"
   >
-    <div
+    <h1>hello</h1>
+    <!-- <div
       class="flex bg-skin-secondary py-4 pr-6 w-full lg:w-1/2"
       :class="{ hidden: showPreview }"
     >
@@ -23,41 +24,11 @@
       :class="{ hidden: !showPreview }"
     >
       <preview-content />
-    </div>
+    </div> -->
   </div>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
-import syncScroll from "../utils/syncScroll";
-
-export default {
-  data() {
-    return {
-      showPreview: false,
-    };
-  },
-  computed: {
-    ...mapGetters("ui", ["sidebarOpen"]),
-  },
-  created() {
-    this.$nuxt.$on("togglePreview", () => {
-      this.showPreview = !this.showPreview;
-    });
-  },
-  beforeDestroy() {
-    this.$nuxt.$off("togglePreview");
-  },
-  mounted() {
-    setTimeout(() => {
-      syncScroll(
-        [".CodeMirror-scroll", ".markdown-content-wraper"],
-        this.$store
-      );
-    }, 1000);
-  },
-};
-</script>
+<script lang="ts" setup></script>
 
 <style scoped>
 /*  */

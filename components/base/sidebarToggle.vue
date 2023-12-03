@@ -24,19 +24,15 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+// import { mapActions, mapGetters } from "vuex";
 import { TweenMax, Power4 } from "gsap";
 export default {
-  computed: {
-    ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),
-  },
-  methods: {
-    ...mapActions("ui", ["toggleSidebar"]),
-    closeSidebar() {
-      //:TODO:
-      // this.$store.dispatch("ui/closeSidebar");
-    },
-  },
+  // computed: {
+  //   ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),
+  // },
+  // methods: {
+  //   ...mapActions("ui", ["toggleSidebar"]),
+  // },
   mounted() {
     TweenMax.set(this.$el, {
       x: 0,

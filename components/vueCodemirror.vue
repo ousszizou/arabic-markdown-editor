@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+// import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -29,25 +29,25 @@ export default {
       },
     };
   },
-  computed: {
-    ...mapGetters("files", ["activeFile", "activeFileDetails"]),
-  },
-  methods: {
-    updateContent(content) {
-      this.$store.dispatch("files/updateFile", {
-        id: this.$store.state.files.activeFile,
-        key: "content",
-        value: content,
-      });
-    },
-    onCmCursorActivity(content) {
-      this.$store.dispatch("files/updateFile", {
-        id: this.$store.state.files.activeFile,
-        key: "content",
-        value: content.getValue(),
-      });
-    },
-  },
+  // computed: {
+  //   ...mapGetters("files", ["activeFile", "activeFileDetails"]),
+  // },
+  // methods: {
+  //   updateContent(content) {
+  //     this.$store.dispatch("files/updateFile", {
+  //       id: this.$store.state.files.activeFile,
+  //       key: "content",
+  //       value: content,
+  //     });
+  //   },
+  //   onCmCursorActivity(content) {
+  //     this.$store.dispatch("files/updateFile", {
+  //       id: this.$store.state.files.activeFile,
+  //       key: "content",
+  //       value: content.getValue(),
+  //     });
+  //   },
+  // },
 };
 </script>
 

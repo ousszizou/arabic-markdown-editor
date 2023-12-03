@@ -4,8 +4,8 @@
       class="bg-skin-base text-skin-base h-screen w-screen fixed top-0 right-0"
       ref="layout"
     >
-      <base-sidebar />
-      <menubar class="h-16" :layoutfullscreen="this.$refs.layout" />
+      <!-- <base-sidebar /> -->
+      <!-- <menubar class="h-16" :layoutfullscreen="this.$refs.layout" /> -->
       <slot
         class="my-0 mx-auto p-3 bg-skin-secondary"
         style="height: calc(100vh - 4rem)"
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+// import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -33,14 +33,14 @@ export default {
       },
     };
   },
-  computed: {
-    ...mapGetters("ui", ["sidebarOpen"]),
-    ...mapGetters("files", ["firstFileCreated"]),
-  },
-  mounted() {
-    if (!this.firstFileCreated) {
-      this.$store.dispatch("files/createFirstDefaultFile");
-    }
-  },
+  // computed: {
+  //   ...mapGetters("ui", ["sidebarOpen"]),
+  //   ...mapGetters("files", ["firstFileCreated"]),
+  // },
+  // mounted() {
+  //   if (!this.firstFileCreated) {
+  //     this.$store.dispatch("files/createFirstDefaultFile");
+  //   }
+  // },
 };
 </script>

@@ -18,17 +18,17 @@ export default {
       type: "",
     };
   },
-  mounted() {
-    const file_details = this.$store.getters["files/activeFileDetails"];
-    const file_type = this.$route.params.type;
-    this.title = file_details.title;
-    this.type = file_type;
-    if (file_type === "markdown") {
-      this.content = file_details.content;
-    } else if (file_type === "html" || file_type === "styled-html") {
-      this.content = this.$md.render(file_details.content);
-    }
-  },
+  // mounted() {
+  //   const file_details = this.$store.getters["files/activeFileDetails"];
+  //   const file_type = this.$route.params.type;
+  //   this.title = file_details.title;
+  //   this.type = file_type;
+  //   if (file_type === "markdown") {
+  //     this.content = file_details.content;
+  //   } else if (file_type === "html" || file_type === "styled-html") {
+  //     this.content = this.$md.render(file_details.content);
+  //   }
+  // },
   render(h) {
     return h(
       "div",
