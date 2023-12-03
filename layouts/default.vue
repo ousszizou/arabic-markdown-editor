@@ -5,7 +5,7 @@
       ref="layout"
     >
       <!-- <base-sidebar /> -->
-      <!-- <menubar class="h-16" :layoutfullscreen="this.$refs.layout" /> -->
+      <MenuBar class="h-16" />
       <slot
         class="my-0 mx-auto p-3 bg-skin-secondary"
         style="height: calc(100vh - 4rem)"
@@ -15,32 +15,24 @@
 </template>
 
 <script>
+
 // import { mapGetters } from "vuex";
 
 export default {
-  data() {
-    return {
-      title: "محرر ماركداون",
-    };
-  },
-  head() {
-    return {
-      title: this.title,
-      // titleTemplate: '%s - Yay!',
-      htmlAttrs: {
-        dir: "rtl",
-        lang: "ar",
-      },
-    };
-  },
-  // computed: {
-  //   ...mapGetters("ui", ["sidebarOpen"]),
-  //   ...mapGetters("files", ["firstFileCreated"]),
-  // },
-  // mounted() {
-  //   if (!this.firstFileCreated) {
-  //     this.$store.dispatch("files/createFirstDefaultFile");
-  //   }
-  // },
+    data() {
+        return {
+            title: "محرر ماركداون",
+        };
+    },
+    head() {
+        return {
+            title: this.title,
+            // titleTemplate: '%s - Yay!',
+            htmlAttrs: {
+                dir: "rtl",
+                lang: "ar",
+            },
+        };
+    },
 };
 </script>

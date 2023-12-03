@@ -1,10 +1,12 @@
+<script setup></script>
+
 <template>
   <div class="flex items-center justify-end py-2 px-6">
     <div class="order-2">
       <!-- Toggle between code & preview -->
-      <base-button
-        @click="togglePreview"
+      <Button
         btnType="primary"
+        label="Toggle between code & preview"
         class="mx-2 inline-block lg:hidden"
       >
         <svg
@@ -14,7 +16,7 @@
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          v-if="showPreview"
+          v-if="true"
         >
           <path
             stroke-linecap="round"
@@ -45,9 +47,9 @@
             d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
           />
         </svg>
-      </base-button>
+      </Button>
       <!-- Enable Fullscreen View -->
-      <base-button @click="toggleFullScreen" btnType="primary" class="mx-2">
+      <Button btnType="primary" label="Enable Fullscreen View" class="mx-2">
         <svg
           width="28"
           height="28"
@@ -63,9 +65,9 @@
             d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
           ></path>
         </svg>
-      </base-button>
+      </Button>
       <!-- Show Settings -->
-      <base-dropdown-menu>
+      <!-- <base-dropdown-menu>
         <template slot="dropdown-menu-toggler">
           <base-button btnType="primary" class="mr-2">
             <svg
@@ -92,7 +94,7 @@
           </base-button>
         </template>
         <template slot="dropdown-menu-content">
-          <!-- <div
+          <div
             class="text-skin-base bg-transaprent hover:bg-skin-dropdown-item-hover flex justify-items-center justify-around rounded-2xl p-3 transition duration-300 ease-out"
           >
             <span class="ml-4 self-center">الحفظ التلقائي</span>
@@ -101,7 +103,7 @@
               :checked="settings.autoSave"
               @click="updateSetting('autoSave', settings.autoSave)"
             />
-          </div> -->
+          </div>
           <div
             class="
               text-skin-base
@@ -124,11 +126,11 @@
             />
           </div>
         </template>
-      </base-dropdown-menu>
+      </base-dropdown-menu> -->
     </div>
     <div class="order-1 ml-12 self-center hidden lg:inline-block">
       <!-- Preview Menu Item -->
-      <base-dropdown>
+      <!-- <base-dropdown>
         <template slot="dropdown-toggler">
           <base-button btnType="secondary" label="معاينة" class="mr-2" />
         </template>
@@ -154,9 +156,9 @@
             {{ type.name }}
           </a>
         </template>
-      </base-dropdown>
+      </base-dropdown> -->
       <!-- Export Menu Item -->
-      <base-dropdown>
+      <!-- <base-dropdown>
         <template slot="dropdown-toggler">
           <base-button btnType="secondary" label="تصدير" class="mr-2" />
         </template>
@@ -183,9 +185,9 @@
             </li>
           </ul>
         </template>
-      </base-dropdown>
+      </base-dropdown> -->
       <!-- Import Menu Item -->
-      <base-dropdown>
+      <!-- <base-dropdown>
         <template slot="dropdown-toggler">
           <base-button btnType="secondary" label="إستيراد" class="mr-2" />
         </template>
@@ -209,89 +211,89 @@
             <a href="#" class="pointer-events-none">{{ type }}</a>
           </div>
         </template>
-      </base-dropdown>
+      </base-dropdown> -->
     </div>
-    <base-sidebar-toggle class="ml-auto" />
-    <base-sidebar />
+    <!-- <base-sidebar-toggle class="ml-auto" /> -->
+    <!-- <base-sidebar /> -->
   </div>
 </template>
 
-<script>
-import exportFile from "~/mixins/exportFile";
-export default {
-  props: ["layoutfullscreen"],
-  mixins: [exportFile],
-  data() {
-    return {
-      types: {
-        previewAs: {
-          markdown: {
-            name: "كـ markdown",
-            url: "markdown",
-          },
-          html: {
-            name: "كـ html",
-            url: "html",
-          },
-          "styled-html": {
-            name: "كـ html مُنسَق",
-            url: "styled-html",
-          },
-        },
-        exportAs: {
-          markdown: {
-            name: "كـ ملف markdown",
-            slug: "markdown",
-          },
-          html: {
-            name: "كـ ملف html",
-            slug: "html",
-          },
-          "styled-html": {
-            name: "كـ ملف html مُنسَق",
-            slug: "styled-html",
-          },
-        },
-        importAs: ["ملف markdown", "ملف html"],
-      },
-      showPreview: false,
-    };
-  },
-  methods: {
-    // toggleFullScreen() {
-    //   if (!document.fullscreenElement) {
-    //     this.layoutfullscreen.requestFullscreen();
-    //   } else {
-    //     if (document.exitFullscreen) {
-    //       document.exitFullscreen();
-    //     }
-    //   }
-    // },
-    // updateSetting(key, value) {
-    //   this.$store.dispatch("app/updateSetting", {
-    //     key,
-    //     value,
-    //   });
-    // },
-    // togglePreview() {
-    //   this.$nuxt.$emit("togglePreview");
-    // },
-  },
-  // created() {
-  //   this.$nuxt.$on("togglePreview", () => {
-  //     this.showPreview = !this.showPreview;
-  //   });
-  // },
-  // beforeDestroy() {
-  //   this.$nuxt.$off("togglePreview");
-  // },
-  // computed: {
-  //   settings() {
-  //     return this.$store.state.app;
-  //   },
-  //   showCodeView() {
-  //     return this.$store.state.ui.showCode;
-  //   },
-  // },
-};
-</script>
+<!-- // <script>
+// import exportFile from "~/mixins/exportFile";
+// export default {
+//   props: ["layoutfullscreen"],
+//   mixins: [exportFile],
+//   data() {
+//     return {
+//       types: {
+//         previewAs: {
+//           markdown: {
+//             name: "كـ markdown",
+//             url: "markdown",
+//           },
+//           html: {
+//             name: "كـ html",
+//             url: "html",
+//           },
+//           "styled-html": {
+//             name: "كـ html مُنسَق",
+//             url: "styled-html",
+//           },
+//         },
+//         exportAs: {
+//           markdown: {
+//             name: "كـ ملف markdown",
+//             slug: "markdown",
+//           },
+//           html: {
+//             name: "كـ ملف html",
+//             slug: "html",
+//           },
+//           "styled-html": {
+//             name: "كـ ملف html مُنسَق",
+//             slug: "styled-html",
+//           },
+//         },
+//         importAs: ["ملف markdown", "ملف html"],
+//       },
+//       showPreview: false,
+//     };
+//   },
+//   methods: {
+//     toggleFullScreen() {
+//       if (!document.fullscreenElement) {
+//         this.layoutfullscreen.requestFullscreen();
+//       } else {
+//         if (document.exitFullscreen) {
+//           document.exitFullscreen();
+//         }
+//       }
+//     },
+//     updateSetting(key, value) {
+//       this.$store.dispatch("app/updateSetting", {
+//         key,
+//         value,
+//       });
+//     },
+//     togglePreview() {
+//       this.$nuxt.$emit("togglePreview");
+//     },
+//   },
+//   created() {
+//     this.$nuxt.$on("togglePreview", () => {
+//       this.showPreview = !this.showPreview;
+//     });
+//   },
+//   beforeDestroy() {
+//     this.$nuxt.$off("togglePreview");
+//   },
+//   computed: {
+//     settings() {
+//       return this.$store.state.app;
+//     },
+//     showCodeView() {
+//       return this.$store.state.ui.showCode;
+//     },
+//   },
+// };
+// </script> -->
