@@ -1,10 +1,22 @@
+<script setup>
+defineProps({
+  btnType: {
+    type: String,
+    required: true
+  },
+  label: {
+    type: String,
+    required: true
+  },
+});
+</script>
+
 <template>
   <button
     :class="[
-      buttonCommunStyle,
-      btnType == 'primary' ? buttonPrimaryStyle : buttonSecondaryStyle,
+      'cursor-pointer p-2 rounded-xl focus:outline-none focus:ring-0 transition duration-300 ease-out',
+      btnType == 'primary' ? 'bg-skin-button-accent hover:bg-skin-button-accent-hover' : 'bg-transaprent hover:bg-skin-button-accent-hover',
     ]"
-    v-on="$listeners"
   >
     <span v-if="btnType == 'secondary'" class="px-1">
       {{ label }}
@@ -28,29 +40,3 @@
     <slot v-else></slot>
   </button>
 </template>
-
-<script>
-export default {
-  props: {
-    btnType: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-    },
-  },
-  data() {
-    return {
-      buttonCommunStyle:
-        "cursor-pointer p-2 rounded-xl focus:outline-none focus:ring-0 transition duration-300 ease-out",
-      buttonPrimaryStyle:
-        "bg-skin-button-accent hover:bg-skin-button-accent-hover",
-      buttonSecondaryStyle: "bg-transaprent hover:bg-skin-button-accent-hover",
-    };
-  },
-};
-</script>
-
-<style>
-</style>
