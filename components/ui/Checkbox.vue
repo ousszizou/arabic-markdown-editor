@@ -1,15 +1,13 @@
+<script setup>
+defineProps(["id", "checked"]);
+</script>
+
 <template>
   <div class="contents">
     <input type="checkbox" :id="id" :checked="checked" v-on="$listeners" />
     <label :for="id">Toggle</label>
   </div>
 </template>
-
-<script>
-export default {
-  props: ["checked", "id"],
-};
-</script>
 
 <style>
 input[type="checkbox"] {
