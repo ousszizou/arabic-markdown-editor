@@ -1,3 +1,34 @@
+<script setup>
+import { TweenMax, Power4 } from "gsap";
+import { version } from "~/package.json";
+// export default {
+  // computed: {
+  //   ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),
+  // },
+  // mounted() {
+  //   if (this.$store.getters["ui/sidebarOpen"]) {
+  //     this.$store.dispatch("ui/toggleSidebar");
+  //   }
+  //   TweenMax.set(this.$refs.sidebar, {
+  //     x: this.$refs.sidebar.offsetWidth,
+  //   });
+  //   this.$store.dispatch("ui/setSidebarWidth", this.$refs.sidebar.offsetWidth);
+  // },
+  // watch: {
+  //   sidebarOpen: function (sidebarOpen) {
+  //     const dX = sidebarOpen ? 0 : this.$refs.sidebar.offsetWidth;
+  //     TweenMax.to(this.$el, 0.6, {
+  //       x: dX,
+  //       ease: Power4.easeOut,
+  //     });
+  //   },
+  // },
+  // methods: {
+  //   ...mapActions("ui", ["toggleSidebar", "closeSidebar"]),
+  // },
+// };
+</script>
+
 <template>
   <div
     ref="sidebar"
@@ -73,53 +104,15 @@
   </div>
 </template>
 
-<script>
-// import { mapGetters, mapActions } from "vuex";
-import { TweenMax, Power4 } from "gsap";
-import { version } from "~/package.json";
-export default {
-  data() {
-    return {
-      version,
-    };
-  },
-  // computed: {
-  //   ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),
-  // },
-  // mounted() {
-  //   if (this.$store.getters["ui/sidebarOpen"]) {
-  //     this.$store.dispatch("ui/toggleSidebar");
-  //   }
-  //   TweenMax.set(this.$refs.sidebar, {
-  //     x: this.$refs.sidebar.offsetWidth,
-  //   });
-  //   this.$store.dispatch("ui/setSidebarWidth", this.$refs.sidebar.offsetWidth);
-  // },
-  // watch: {
-  //   sidebarOpen: function (sidebarOpen) {
-  //     const dX = sidebarOpen ? 0 : this.$refs.sidebar.offsetWidth;
-  //     TweenMax.to(this.$el, 0.6, {
-  //       x: dX,
-  //       ease: Power4.easeOut,
-  //     });
-  //   },
-  // },
-  // methods: {
-  //   ...mapActions("ui", ["toggleSidebar", "closeSidebar"]),
-  // },
-};
-</script>
-
 <style scoped>
 ::-webkit-scrollbar {
   width: 4px;
 }
-
 ::-webkit-scrollbar-thumb {
   border-radius: 50px;
   background: transparent;
 }
-/* ::-webkit-scrollbar-thumb:window-inactive {
+::-webkit-scrollbar-thumb:window-inactive {
   background: transparent;
-} */
+}
 </style>
