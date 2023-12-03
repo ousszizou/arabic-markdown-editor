@@ -1,3 +1,54 @@
+<script setup>
+// import { mapGetters } from "vuex";
+// import throttle from "lodash.throttle";
+
+// export default {
+//   data() {
+//     return {
+//       editFileId: "",
+//       tempFileName: "",
+//     };
+//   },
+//   computed: {
+//     ...mapGetters("files", ["allFiles", "activeFile"]),
+//   },
+//   methods: {
+//     focusInputFile(id) {
+//       this.editFileId = id;
+//       this.$nextTick(() => this.$refs.inputFileName[0].focus());
+//     },
+//     changeActiveFile(id) {
+//       this.$store.dispatch("files/changeActiveFile", id);
+//     },
+//     addNewFile: throttle(function () {
+//       this.$store.dispatch("files/addNewFile", {
+//         active: true,
+//         data: {
+//           title: "ملف جديد",
+//           content: "",
+//         },
+//       });
+//     }, 3000),
+//     deleteFile(id) {
+//       this.$store.dispatch("files/deleteFile", id);
+//     },
+//     updateFileTitle() {
+//       if (this.editFileId && this.tempFileName == "") {
+//         this.editFileId = "";
+//         return;
+//       }
+//       this.$store.dispatch("files/updateFile", {
+//         id: this.editFileId,
+//         key: "title",
+//         value: this.tempFileName,
+//       });
+//       this.editFileId = "";
+//       this.tempFileName = "";
+//     },
+//   },
+// };
+</script>
+
 <template>
   <div>
     <div v-if="allFiles.length > 0">
@@ -53,54 +104,3 @@
     </div>
   </div>
 </template>
-
-<script>
-// import { mapGetters } from "vuex";
-import throttle from "lodash.throttle";
-
-export default {
-  data() {
-    return {
-      editFileId: "",
-      tempFileName: "",
-    };
-  },
-  // computed: {
-  //   ...mapGetters("files", ["allFiles", "activeFile"]),
-  // },
-  // methods: {
-  //   focusInputFile(id) {
-  //     this.editFileId = id;
-  //     this.$nextTick(() => this.$refs.inputFileName[0].focus());
-  //   },
-  //   changeActiveFile(id) {
-  //     this.$store.dispatch("files/changeActiveFile", id);
-  //   },
-  //   addNewFile: throttle(function () {
-  //     this.$store.dispatch("files/addNewFile", {
-  //       active: true,
-  //       data: {
-  //         title: "ملف جديد",
-  //         content: "",
-  //       },
-  //     });
-  //   }, 3000),
-  //   deleteFile(id) {
-  //     this.$store.dispatch("files/deleteFile", id);
-  //   },
-  //   updateFileTitle() {
-  //     if (this.editFileId && this.tempFileName == "") {
-  //       this.editFileId = "";
-  //       return;
-  //     }
-  //     this.$store.dispatch("files/updateFile", {
-  //       id: this.editFileId,
-  //       key: "title",
-  //       value: this.tempFileName,
-  //     });
-  //     this.editFileId = "";
-  //     this.tempFileName = "";
-  //   },
-  // },
-};
-</script>
