@@ -1,3 +1,15 @@
+<script setup>
+const active = ref(false);
+
+const toggle = () => {
+  active = !active;
+};
+
+const closeDropdown = () => {
+  active = false;
+};
+
+</script>
 <template>
   <div class="inline-block" v-on-clickaway="closeDropdown">
     <div @click="toggle">
@@ -17,24 +29,6 @@
     </transition>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      active: false,
-    };
-  },
-  methods: {
-    toggle() {
-      this.active = !this.active;
-    },
-    closeDropdown() {
-      this.active = false;
-    },
-  },
-};
-</script>
 
 <style>
 .dropdown-content-transition-enter-active,
