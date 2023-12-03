@@ -1,4 +1,10 @@
 export default defineNuxtConfig({
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
   app: {
     head: {
       title: "Arabic Markdown Editor",
