@@ -1,5 +1,27 @@
 <script setup>
 import { TweenMax, Power4 } from "gsap";
+import { useUIStore } from "@/store/ui";
+const uiStore = useUIStore();
+
+onMounted(() => {
+  TweenMax.set(props, {
+    x: 0,
+  });
+})
+
+watch(uiStore.sidebarOpen, (newSidebarOpen) => {
+  const dX = !newSidebarOpen ? 0 : -uiStore.sidebarWidth;
+  TweenMax.to(props, 0.6, {
+    x: dX,
+    ease: Power4.easeOut,
+  });
+  TweenMax.to(props, {
+    duration: 1,
+    x: dX,
+    rotation: newSidebarOpen ? 180 : 0,
+    ease: 'back',
+  });
+});
 // export default {
 //   computed: {
 //     ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),
@@ -31,11 +53,9 @@ import { TweenMax, Power4 } from "gsap";
 </script>
 
 <template>
-  <base-button
-    @click="toggleSidebar"
-    v-on-clickaway="closeSidebar"
+  <Button
     btnType="primary"
-    :class="[sidebarOpen ? 'transform rotate-180 -mr-3 hidden md:block' : '']"
+    :class="[uiStore.sidebarOpen ? 'transform rotate-180 -mr-3 hidden md:block' : '']"
   >
     <svg
       width="28"
@@ -52,5 +72,5 @@ import { TweenMax, Power4 } from "gsap";
         d="M13 5l7 7-7 7M5 5l7 7-7 7"
       ></path>
     </svg>
-  </base-button>
+  </Button>
 </template>

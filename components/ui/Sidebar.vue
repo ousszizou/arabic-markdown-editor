@@ -48,7 +48,7 @@ import { version } from "~/package.json";
       p-4
     "
   >
-    <base-button @click="closeSidebar" class="self-end inline-block md:hidden">
+    <Button @click="closeSidebar" class="self-end inline-block md:hidden">
       <svg
       xmlns="http://www.w3.org/2000/svg"
       width="28px"
@@ -62,11 +62,11 @@ import { version } from "~/package.json";
           stroke-width="2"
           d="M6 18L18 6M6 6l12 12" />
       </svg>
-    </base-button>
+    </Button>
     <!-- Header -->
-    <div class="h-20 my-6 flex justify-center items-center">
+    <!-- <div class="h-20 my-6 flex justify-center items-center">
       <img class="w-16" src="/logo.png" />
-    </div>
+    </div> -->
     <!-- Body -->
     <div class="flex-grow py-6 overflow-y-scroll">
       <sidebar-file-list />

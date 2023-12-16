@@ -190,8 +190,8 @@ const appStore = useAppStore();
         </template>
       </Dropdown>
     </div>
-    <base-sidebar-toggle class="ml-auto" />
-    <base-sidebar />
+    <SidebarToggle class="ml-auto" />
+    <Sidebar />
   </div>
 </template>
 
