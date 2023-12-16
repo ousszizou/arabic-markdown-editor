@@ -11,7 +11,7 @@ export const useAppStore = defineStore('app', {
     syncScroll: true,
   }),
   actions: {
-    updateSetting({ key, value }: { key: keyof AppState; value: boolean }) {
+    updateSetting(key: keyof AppState, value: boolean) {
       this[key] = !value;
     },
   },

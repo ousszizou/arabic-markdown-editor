@@ -1,9 +1,13 @@
+<script lang="ts" setup>
+</script>
+
 <template>
   <div
     class="flex relative text-lg"
     :class="[false ? 'filter blur' : '']"
   >
     <h1>hello</h1>
+
     <!-- <div
       class="flex bg-skin-secondary py-4 pr-6 w-full lg:w-1/2"
       :class="{ hidden: showPreview }"
@@ -27,8 +31,6 @@
     </div> -->
   </div>
 </template>
-
-<script lang="ts" setup></script>
 
 <style scoped>
 /*  */

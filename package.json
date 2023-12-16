@@ -15,6 +15,8 @@
     "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.5",
     "@pinia/nuxt": "^0.5.1",
+    "@vueuse/core": "^10.6.1",
+    "@vueuse/nuxt": "^10.6.1",
     "codemirror": ">=5.64.0 <6",
     "codemirror-editor-vue3": "^2.4.1",
     "file-saver": "^2.0.5",

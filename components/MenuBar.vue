@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { useAppStore } from "@/store/app";
+const appStore = useAppStore();
+</script>
 
 <template>
   <div class="flex items-center justify-end py-2 px-6">
@@ -67,9 +70,9 @@
         </svg>
       </Button>
       <!-- Show Settings -->
-      <!-- <base-dropdown-menu>
-        <template slot="dropdown-menu-toggler">
-          <base-button btnType="primary" class="mr-2">
+      <Dropdown>
+        <template #toggler>
+          <Button btnType="primary" label="Show Settings" class="mr-2">
             <svg
               fill="none"
               stroke="currentColor"
@@ -91,50 +94,39 @@
                 d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
               ></path>
             </svg>
-          </base-button>
+          </Button>
         </template>
-        <template slot="dropdown-menu-content">
+        <template #content>
           <div
             class="text-skin-base bg-transaprent hover:bg-skin-dropdown-item-hover flex justify-items-center justify-around rounded-2xl p-3 transition duration-300 ease-out"
           >
             <span class="ml-4 self-center">الحفظ التلقائي</span>
-            <base-checkbox
+            <Checkbox
               id="autoSave"
-              :checked="settings.autoSave"
-              @click="updateSetting('autoSave', settings.autoSave)"
+              :checked="appStore.autoSave"
+              @click="appStore.updateSetting('autoSave', !appStore.autoSave)"
             />
           </div>
           <div
-            class="
-              text-skin-base
-              bg-transaprent
-              hover:bg-skin-dropdown-item-hover
-              flex
-              justify-items-center justify-around
-              rounded-2xl
-              p-3
-              transition
-              duration-300
-              ease-out
-            "
+            class="text-skin-base bg-transaprent hover:bg-skin-dropdown-item-hover flex justify-items-center justify-around rounded-2xl p-3 transition duration-300 ease-out"
           >
             <span class="ml-4 self-center">التمرير المتزامن</span>
-            <base-checkbox
+            <Checkbox
               id="syncScroll"
-              :checked="settings.syncScroll"
-              @click="updateSetting('syncScroll', settings.syncScroll)"
+              :checked="appStore.syncScroll"
+              @click="appStore.updateSetting('syncScroll', !appStore.syncScroll)"
             />
           </div>
         </template>
-      </base-dropdown-menu> -->
+      </Dropdown>
     </div>
     <div class="order-1 ml-12 self-center hidden lg:inline-block">
       <!-- Preview Menu Item -->
-      <!-- <base-dropdown>
-        <template slot="dropdown-toggler">
-          <base-button btnType="secondary" label="معاينة" class="mr-2" />
+      <Dropdown>
+        <template #toggler>
+          <Button btnType="secondary" label="معاينة" class="mr-2" />
         </template>
-        <template slot="dropdown-content">
+        <template #content>
           <a
             class="
               text-skin-base
@@ -156,13 +148,13 @@
             {{ type.name }}
           </a>
         </template>
-      </base-dropdown> -->
+      </Dropdown>
       <!-- Export Menu Item -->
-      <!-- <base-dropdown>
-        <template slot="dropdown-toggler">
-          <base-button btnType="secondary" label="تصدير" class="mr-2" />
+      <Dropdown>
+        <template #toggler>
+          <Button btnType="secondary" label="تصدير" class="mr-2" />
         </template>
-        <template slot="dropdown-content">
+        <template #content>
           <ul>
             <li
               class="
@@ -185,40 +177,25 @@
             </li>
           </ul>
         </template>
-      </base-dropdown> -->
+      </Dropdown>
       <!-- Import Menu Item -->
-      <!-- <base-dropdown>
-        <template slot="dropdown-toggler">
-          <base-button btnType="secondary" label="إستيراد" class="mr-2" />
+      <Dropdown>
+        <template #toggler>
+          <Button btnType="secondary" label="إستيراد" class="mr-2" />
         </template>
-        <template slot="dropdown-content">
-          <div
-            class="
-              text-skin-base
-              bg-transaprent
-              hover:bg-skin-dropdown-item-hover
-              rounded-xl
-              py-3
-              px-9
-              transition
-              duration-300
-              ease-out
-              cursor-not-allowed
-            "
-            v-for="type in types.importAs"
-            :key="type"
-          >
+        <template #content>
+          <div class="text-skin-base bg-transaprent hover:bg-skin-dropdown-item-hover rounded-xl py-3 px-9 transition duration-300 ease-out cursor-not-allowed" v-for="type in types.importAs">
             <a href="#" class="pointer-events-none">{{ type }}</a>
           </div>
         </template>
-      </base-dropdown> -->
+      </Dropdown>
     </div>
-    <!-- <base-sidebar-toggle class="ml-auto" /> -->
-    <!-- <base-sidebar /> -->
+    <base-sidebar-toggle class="ml-auto" />
+    <base-sidebar />
   </div>
 </template>
 
-<!-- // <script>
+// <script>
 // import exportFile from "~/mixins/exportFile";
 // export default {
 //   props: ["layoutfullscreen"],
