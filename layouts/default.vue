@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { useFileStore } from "@/store/file";
+
+const fileStore = useFileStore();
+
+onMounted(() => {
+  if (!fileStore.isFirstFileCreated) {
+    fileStore.createFirstDefaultFile();
+  }
+  console.log('files ', fileStore.allFiles);
+})
+</script>
+
 <template>
   <div>
     <div
@@ -13,26 +26,3 @@
     </div>
   </div>
 </template>
-
-<script>
-
-// import { mapGetters } from "vuex";
-
-export default {
-    data() {
-        return {
-            title: "محرر ماركداون",
-        };
-    },
-    head() {
-        return {
-            title: this.title,
-            // titleTemplate: '%s - Yay!',
-            htmlAttrs: {
-                dir: "rtl",
-                lang: "ar",
-            },
-        };
-    },
-};
-</script>

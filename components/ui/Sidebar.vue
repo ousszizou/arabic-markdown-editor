@@ -48,7 +48,7 @@ import { version } from "~/package.json";
       p-4
     "
   >
-    <Button @click="closeSidebar" class="self-end inline-block md:hidden">
+    <Button class="self-end inline-block md:hidden">
       <svg
       xmlns="http://www.w3.org/2000/svg"
       width="28px"
@@ -64,42 +64,16 @@ import { version } from "~/package.json";
       </svg>
     </Button>
     <!-- Header -->
-    <!-- <div class="h-20 my-6 flex justify-center items-center">
-      <img class="w-16" src="/logo.png" />
-    </div> -->
+    <div class="my-6 flex justify-center items-center">
+      إسم المحرر
+    </div>
     <!-- Body -->
     <div class="flex-grow py-6 overflow-y-scroll">
-      <sidebar-file-list />
+      <FileList />
     </div>
     <!-- Footer -->
-    <div class="h-28 mt-6 flex flex-col justify-between">
-      <ul>
-        <li
-          class="
-            py-1
-            text-skin-base
-            hover:text-skin-base-hover
-            transition
-            duration-150
-          "
-        >
-          طريقة الإستعمال
-        </li>
-        <li
-          class="
-            py-1
-            text-skin-base
-            hover:text-skin-base-hover
-            transition
-            duration-150
-          "
-        >
-          حول المُحرر
-        </li>
-      </ul>
-      <span
-        >الإصدار <code>{{ version }}</code></span
-      >
+    <div class="h-10 mt-6 flex flex-col justify-between">
+      <span>الإصدار <code>{{ version }}</code></span>
     </div>
   </div>
 </template>

@@ -12,11 +12,6 @@ export const useUIStore = defineStore('ui', {
     sidebarWidth: null,
     showCode: true,
   }),
-  getters: {
-    sidebarOpen: state => state.sidebarOpen,
-    sidebarWidth: state => state.sidebarWidth,
-    showCode: state => state.showCode
-  },
   actions: {
     toggleSidebar() {
       this.sidebarOpen = !this.sidebarOpen;

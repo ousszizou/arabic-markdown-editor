@@ -3,25 +3,25 @@ import { TweenMax, Power4 } from "gsap";
 import { useUIStore } from "@/store/ui";
 const uiStore = useUIStore();
 
-onMounted(() => {
-  TweenMax.set(props, {
-    x: 0,
-  });
-})
+// onMounted(() => {
+//   TweenMax.set(props, {
+//     x: 0,
+//   });
+// })
 
-watch(uiStore.sidebarOpen, (newSidebarOpen) => {
-  const dX = !newSidebarOpen ? 0 : -uiStore.sidebarWidth;
-  TweenMax.to(props, 0.6, {
-    x: dX,
-    ease: Power4.easeOut,
-  });
-  TweenMax.to(props, {
-    duration: 1,
-    x: dX,
-    rotation: newSidebarOpen ? 180 : 0,
-    ease: 'back',
-  });
-});
+// watch(uiStore.sidebarOpen, (newSidebarOpen) => {
+//   const dX = !newSidebarOpen ? 0 : -uiStore.sidebarWidth;
+//   TweenMax.to(props, 0.6, {
+//     x: dX,
+//     ease: Power4.easeOut,
+//   });
+//   TweenMax.to(props, {
+//     duration: 1,
+//     x: dX,
+//     rotation: newSidebarOpen ? 180 : 0,
+//     ease: 'back',
+//   });
+// });
 // export default {
 //   computed: {
 //     ...mapGetters("ui", ["sidebarOpen", "sidebarWidth"]),

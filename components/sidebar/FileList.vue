@@ -1,14 +1,36 @@
 <script setup>
-// import { mapGetters } from "vuex";
-// import throttle from "lodash.throttle";
+import { useFileStore } from "@/store/file";
+
+const fileStore = useFileStore();
+
+const editFileId = ref('')
+const tempFileName = ref('')
+
+const focusInputFile = (id) => {
+  editFileId.value = id;
+}
+
+const updateFileTitle = () => {
+  if (editFileId.value && tempFileName.value === "") {
+    editFileId.value = "";
+    return;
+  }
+}
+
+const changeActiveFile = (id) => {
+  fileStore.changeActiveFile(id);
+}
+
+const addNewFile = () => {
+  fileStore.addNewFile({
+    title: "ملف جديد",
+    content: "",
+  });
+}
+
+const deleteFile = () => fileStore.deleteFile();
 
 // export default {
-//   data() {
-//     return {
-//       editFileId: "",
-//       tempFileName: "",
-//     };
-//   },
 //   computed: {
 //     ...mapGetters("files", ["allFiles", "activeFile"]),
 //   },
@@ -51,12 +73,12 @@
 
 <template>
   <div>
-    <div v-if="allFiles.length > 0">
-      <div v-for="file in allFiles" :key="file.id">
+    <div v-if="fileStore.allFiles.length > 0">
+      <div v-for="file in fileStore.allFiles" :key="file.id">
         <div
           class="flex justify-between items-center bg-skin-base p-4 rounded-2xl transform hover:-translate-y-0.5 hover:shadow-lg mb-3"
           @click="changeActiveFile(file.id)"
-          :class="file.id === activeFile ? 'border-2 border-blue-500' : ''"
+          :class="file.id === fileStore.getActiveFile ? 'border-2 border-blue-500' : ''"
         >
           <input
             v-model="tempFileName"
@@ -67,7 +89,7 @@
             @blur="updateFileTitle"
           />
           <p v-else class="bg-skin-base flex-grow p-2 rounded-xl ml-3">
-            {{ file.title }}
+            {{ file.data.title }}
           </p>
           <button
             class="bg-skin-button-accent hover:bg-skin-button-accent-hover cursor-pointer p-1 rounded-xl focus:outline-none focus:ring-0 transition duration-300 ease-out"
