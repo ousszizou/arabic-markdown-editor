@@ -7,7 +7,10 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: "Arabic Markdown Editor",
+      htmlAttrs: {
+        dir: "rtl",
+      },
+      title: "محرر ماركداون",
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],

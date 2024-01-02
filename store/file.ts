@@ -1,24 +1,18 @@
 import { defineStore } from 'pinia'
 import ShortUniqueId from 'short-unique-id';
 
-interface FileState {
-  files: {
-    id: string;
-    data: {
-      title: string;
-      content: string;
-    };
-  }[] | [];
-  activeFile: string;
-  isFirstFileCreated: boolean;
-}
-
 interface File {
   id: string;
   data: {
     title: string;
     content: string;
   };
+}
+
+interface FileState {
+  files: File[] | [];
+  activeFile: string;
+  isFirstFileCreated: boolean;
 }
 
 export const useFileStore = defineStore('file', {
@@ -63,6 +57,12 @@ export const useFileStore = defineStore('file', {
       }
       this.files = this.files.filter(f => f.id !== this.activeFile);
       this.activeFile = this.files.length === 0 ? "" : this.latestFile.id;
+    },
+    updateFileTitle(data: { id: string; newValue: string }) {
+      const file = this.files.find(f => f.id === data.id);
+      if (file) {
+        file.data.title = data.newValue;
+      }
     },
   },
 });

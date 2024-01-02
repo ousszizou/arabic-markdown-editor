@@ -6,8 +6,13 @@ const fileStore = useFileStore();
 const editFileId = ref('')
 const tempFileName = ref('')
 
-const focusInputFile = (id) => {
+const focusInputFile = async (id) => {
   editFileId.value = id;
+  await nextTick();
+  const inputElement = document.getElementById(`input-${id}`);
+  if (inputElement) {
+    inputElement.focus();
+  }
 }
 
 const updateFileTitle = () => {
@@ -15,6 +20,12 @@ const updateFileTitle = () => {
     editFileId.value = "";
     return;
   }
+  fileStore.updateFileTitle({
+    id: editFileId.value,
+    newValue: tempFileName.value,
+  });
+  editFileId.value = "";
+  tempFileName.value = "";
 }
 
 const changeActiveFile = (id) => {
@@ -29,46 +40,6 @@ const addNewFile = () => {
 }
 
 const deleteFile = () => fileStore.deleteFile();
-
-// export default {
-//   computed: {
-//     ...mapGetters("files", ["allFiles", "activeFile"]),
-//   },
-//   methods: {
-//     focusInputFile(id) {
-//       this.editFileId = id;
-//       this.$nextTick(() => this.$refs.inputFileName[0].focus());
-//     },
-//     changeActiveFile(id) {
-//       this.$store.dispatch("files/changeActiveFile", id);
-//     },
-//     addNewFile: throttle(function () {
-//       this.$store.dispatch("files/addNewFile", {
-//         active: true,
-//         data: {
-//           title: "ملف جديد",
-//           content: "",
-//         },
-//       });
-//     }, 3000),
-//     deleteFile(id) {
-//       this.$store.dispatch("files/deleteFile", id);
-//     },
-//     updateFileTitle() {
-//       if (this.editFileId && this.tempFileName == "") {
-//         this.editFileId = "";
-//         return;
-//       }
-//       this.$store.dispatch("files/updateFile", {
-//         id: this.editFileId,
-//         key: "title",
-//         value: this.tempFileName,
-//       });
-//       this.editFileId = "";
-//       this.tempFileName = "";
-//     },
-//   },
-// };
 </script>
 
 <template>
@@ -81,14 +52,15 @@ const deleteFile = () => fileStore.deleteFile();
           :class="file.id === fileStore.getActiveFile ? 'border-2 border-blue-500' : ''"
         >
           <input
+            :id="`input-${file.id}`"
             v-model="tempFileName"
             ref="inputFileName"
             type="text"
-            class="w-full ml-3 px-3 py-2 rounded-xl bg-skin-secondary focus:outline-none"
+            class="w-full me-3 px-3 py-2 rounded-xl bg-skin-secondary focus:outline-none"
             v-if="file.id == editFileId"
             @blur="updateFileTitle"
           />
-          <p v-else class="bg-skin-base flex-grow p-2 rounded-xl ml-3">
+          <p v-else class="bg-skin-base flex-grow p-2 rounded-xl ms-3">
             {{ file.data.title }}
           </p>
           <button

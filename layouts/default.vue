@@ -7,7 +7,6 @@ onMounted(() => {
   if (!fileStore.isFirstFileCreated) {
     fileStore.createFirstDefaultFile();
   }
-  console.log('files ', fileStore.allFiles);
 })
 </script>
 
