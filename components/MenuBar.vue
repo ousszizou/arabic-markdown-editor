@@ -1,6 +1,38 @@
 <script setup>
 import { useAppStore } from "@/store/app";
 const appStore = useAppStore();
+
+const types = ref({
+  previewAs: {
+    markdown: {
+      name: "كـ markdown",
+      url: "markdown",
+    },
+    html: {
+      name: "كـ html",
+      url: "html",
+    },
+    "styled-html": {
+      name: "كـ html مُنسَق",
+      url: "styled-html",
+    },
+  },
+  exportAs: {
+    markdown: {
+      name: "كـ ملف markdown",
+      slug: "markdown",
+    },
+    html: {
+      name: "كـ ملف html",
+      slug: "html",
+    },
+    "styled-html": {
+      name: "كـ ملف html مُنسَق",
+      slug: "styled-html",
+    },
+  },
+  importAs: ["ملف markdown", "ملف html"],
+});
 </script>
 
 <template>

@@ -6,11 +6,11 @@ onClickOutside(target, (event) => closeDropdown())
 const active = ref(false);
 
 const toggle = () => {
-  active = !active;
+  active.value = !active.value;
 };
 
 const closeDropdown = () => {
-  active = false;
+  active.value = false;
 };
 
 </script>
