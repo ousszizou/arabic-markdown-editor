@@ -1,5 +1,6 @@
 <script setup>
 import { useAppStore } from "@/store/app";
+
 const appStore = useAppStore();
 
 const types = ref({
@@ -36,13 +37,27 @@ const types = ref({
 </script>
 
 <template>
-  <div class="flex items-center justify-end py-2 px-6">
+  <div class="flex items-center py-2 px-6">
+    <Sheet>
+      <SheetTrigger>
+        <Button size="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>عنوان هنا</SheetTitle>
+          <SheetDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </SheetDescription>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
     <div class="order-2">
       <!-- Toggle between code & preview -->
-      <Button
-        btnType="primary"
+      <!-- <Button
         label="Toggle between code & preview"
-        class="mx-2 inline-block lg:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -82,9 +97,9 @@ const types = ref({
             d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
           />
         </svg>
-      </Button>
+      </Button> -->
       <!-- Enable Fullscreen View -->
-      <Button btnType="primary" label="Enable Fullscreen View" class="mx-2">
+      <!-- <Button label="Enable Fullscreen View">
         <svg
           width="28"
           height="28"
@@ -100,11 +115,11 @@ const types = ref({
             d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
           ></path>
         </svg>
-      </Button>
+      </Button> -->
       <!-- Show Settings -->
-      <Dropdown>
+      <!-- <Dropdown>
         <template #toggler>
-          <Button btnType="primary" label="Show Settings" class="mr-2">
+          <Button label="Show Settings">
             <svg
               fill="none"
               stroke="currentColor"
@@ -150,13 +165,13 @@ const types = ref({
             />
           </div>
         </template>
-      </Dropdown>
+      </Dropdown> -->
     </div>
     <div class="order-1 ml-12 self-center hidden lg:inline-block">
       <!-- Preview Menu Item -->
-      <Dropdown>
+      <!-- <Dropdown>
         <template #toggler>
-          <Button btnType="secondary" label="معاينة" class="mr-2" />
+          <Button>معاينة</Button>
         </template>
         <template #content>
           <a
@@ -180,11 +195,11 @@ const types = ref({
             {{ type.name }}
           </a>
         </template>
-      </Dropdown>
+      </Dropdown> -->
       <!-- Export Menu Item -->
-      <Dropdown>
+      <!-- <Dropdown>
         <template #toggler>
-          <Button btnType="secondary" label="تصدير" class="mr-2" />
+          <Button>تصدير</Button>
         </template>
         <template #content>
           <ul>
@@ -209,25 +224,24 @@ const types = ref({
             </li>
           </ul>
         </template>
-      </Dropdown>
+      </Dropdown> -->
       <!-- Import Menu Item -->
-      <Dropdown>
+      <!-- <Dropdown>
         <template #toggler>
-          <Button btnType="secondary" label="إستيراد" class="mr-2" />
+          <Button>استيراد</Button>
         </template>
         <template #content>
           <div class="text-skin-base bg-transaprent hover:bg-skin-dropdown-item-hover rounded-xl py-3 px-9 transition duration-300 ease-out cursor-not-allowed" v-for="type in types.importAs">
             <a href="#" class="pointer-events-none">{{ type }}</a>
           </div>
         </template>
-      </Dropdown>
+      </Dropdown> -->
     </div>
-    <SidebarToggle class="ml-auto" />
-    <Sidebar />
   </div>
 </template>
 
-// <script>
+//
+<script>
 // import exportFile from "~/mixins/exportFile";
 // export default {
 //   props: ["layoutfullscreen"],
@@ -305,4 +319,6 @@ const types = ref({
 //     },
 //   },
 // };
-// </script> -->
+//
+</script>
+-->

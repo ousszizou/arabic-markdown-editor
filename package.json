@@ -42,7 +42,8 @@
     "@types/codemirror": "^5.60.15",
     "shadcn-nuxt": "^0.8.6",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vue": "^3.4.4"
   },
   "volta": {
     "node": "18.18.0"

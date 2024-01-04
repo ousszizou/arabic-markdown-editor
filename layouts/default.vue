@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ConfigProvider } from 'radix-vue'
 import { useFileStore } from "@/store/file";
 
 const fileStore = useFileStore();
@@ -11,9 +12,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <ConfigProvider dir="rtl" :scroll-body="false">
     <div
-      class="bg-skin-base text-skin-base h-screen w-screen fixed top-0 right-0"
+      class="text-skin-base h-screen w-screen fixed top-0 right-0"
       ref="layout"
     >
       <!-- <base-sidebar /> -->
@@ -23,5 +24,5 @@ onMounted(() => {
         style="height: calc(100vh - 4rem)"
       />
     </div>
-  </div>
+  </ConfigProvider>
 </template>
