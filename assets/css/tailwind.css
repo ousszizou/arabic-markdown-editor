@@ -1,59 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
-
   :root {
-    --color-theme-base: #232935;
-    --color-theme-secondary: #1f2430;
-    --color-text-base: #fff;
-    --color-text-base-hover: #ffffffc7;
-    --color-button-base: #ffffff0f;
-    --color-button-base-hover: #ffffff0a;
-    --color-dropdown-base: #2e343f;
-    --color-dropdown-item-hover: #0000001a;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
   }
-
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 212.7 26.8% 83.9%;
+  }
 }
-
-.markdown-content {
-  word-break: break-word;
-}
-.markdown-content h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply my-5;
-}
-.markdown-content h1 {
-  @apply text-3xl;
-}
-.markdown-content h2 {
-  @apply text-2xl;
-}
-.markdown-content p {
-  @apply my-2;
-}
-.markdown-content a {
-  @apply text-blue-300 hover:text-blue-400 transition duration-300 ease-out underline font-bold;
-}
-.markdown-content ul {
-  @apply list-disc mr-10 mb-2;
-}
-.markdown-content pre {
-  @apply my-5;
-}
-.markdown-content pre,
-.markdown-content code {
-  font-family: "Fira Code", monospace;
-  word-break: break-word;
-  @apply rounded-xl;
-}
-
-.markdown-content pre code.hljs {
-  direction: ltr;
-  @apply p-5 bg-skin-secondary;
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
